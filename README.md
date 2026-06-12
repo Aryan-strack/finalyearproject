@@ -1,4 +1,4 @@
-# ArtisanMart - Multi-Vendor Marketplace
+# IntelliMart - Multi-Vendor Marketplace
 
 A full-stack MERN (MongoDB, Express.js, React, Node.js) web application that enables multiple vendors (artisans) to create profiles, list unique products, and sell to customers through a seamless, responsive platform.
 
