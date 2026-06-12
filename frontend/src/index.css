@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Sophisticated Color Palette */
+    --primary: 224 71% 4%; /* Midnight */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 224 71% 4%;
+    
+    --accent: 262 83% 58%; /* Electric Violet */
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 220 14% 90%;
+    --muted-foreground: 220 10% 40%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --primary: 0 0% 100%;
+    --primary-foreground: 224 71% 4%;
+    
+    --secondary: 224 71% 10%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 224 71% 15%;
+    --muted-foreground: 220 10% 60%;
+    
+    --card: 224 71% 4%;
+    --card-foreground: 0 0% 100%;
+    
+    --border: 224 71% 12%;
+    --input: 224 71% 12%;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply tracking-tight font-bold;
+  }
+
+  body {
+    @apply bg-white text-slate-900 selection:bg-indigo-100 selection:text-indigo-900;
+  }
+}
+
+@layer components {
+  /* Premium Buttons */
+  .btn-premium {
+    @apply relative inline-flex items-center justify-center px-8 py-3.5 font-semibold text-white transition-all duration-300 rounded-2xl overflow-hidden shadow-[0_10px_20px_-5px_rgba(30,41,59,0.2)] hover:shadow-[0_20px_40px_-10px_rgba(30,41,59,0.3)] hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  .btn-accent {
+    @apply relative inline-flex items-center justify-center px-8 py-3.5 font-semibold text-white transition-all duration-300 rounded-2xl overflow-hidden shadow-[0_10px_20px_-5px_hsla(262,83%,58%,0.3)] hover:shadow-[0_20px_40px_-10px_hsla(262,83%,58%,0.4)] hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  }
+
+  .btn-outline {
+    @apply border-2 border-slate-200 bg-transparent text-slate-900 hover:bg-slate-50 hover:border-slate-300 active:scale-95 transition-all duration-300 rounded-2xl px-8 py-3.5 font-semibold;
+  }
+
+  /* Glassmorphism */
+  .glass-effect {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Cards */
+  .card-premium {
+    @apply bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2;
+  }
+
+  /* Inputs */
+  .input-premium {
+    @apply w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 focus:bg-white transition-all duration-300 text-slate-900 placeholder:text-slate-400 font-medium;
+  }
+
+  /* Typography Utilities */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-900;
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-600;
+  }
+}
+
+@layer utilities {
+  .mask-radial {
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3C%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-50;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 rounded-full border-4 border-slate-50 hover:bg-slate-300 transition-colors;
+  }
+}
+
